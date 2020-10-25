@@ -21,7 +21,9 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + '/index.html');
 });
 
-
+app.get('/messages',(req,res)=>{
+  res.json(messages);
+})
 
 
 
