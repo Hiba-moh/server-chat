@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require('cors')
-
+const bodyParse = require('body-parse');
+app.use(bodyParse.json)
 const app = express();
 
 app.use(cors())
@@ -21,8 +22,6 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + '/index.html');
 });
 
-c
-
 
 app.get('/messages/:id',(req,res)=>{
  let id = Number(req.params.id)
@@ -31,6 +30,7 @@ app.get('/messages/:id',(req,res)=>{
 })
 
 app.post('/messages',(req,res)=>{
+  
   
   res.json(messages);
 })
