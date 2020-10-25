@@ -21,9 +21,22 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + '/index.html');
 });
 
-app.get('/messages',(req,res)=>{
+c
+
+
+app.get('/messages/:id',(req,res)=>{
+ let id = Number(req.params.id)
+ let messageById = messages.find(message=>message.id===id)
+  res.json(messageById);
+})
+
+app.post('/messages',(req,res)=>{
+  
   res.json(messages);
 })
+
+
+
 
 
 
