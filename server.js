@@ -30,9 +30,10 @@ app.get('/messages/:id',(req,res)=>{
 })
 
 app.post('/messages',(req,res)=>{
+ let newMessage = req.body;
+  messages.push(newMessage)
   
-  
-  res.json(messages);
+  res.send('messages');
 })
 
 
