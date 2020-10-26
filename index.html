@@ -20,9 +20,10 @@
       </button>
     </form>
     
-     <form method="post"  action="/messages/{{id}}?_method=DELETE">
+    
+     <form method="post"  action="/messages/{{id}}?_method=delete">
       <p>
-        ID: <input type="text" name="id" placeholder="Your Name" /> <br />
+        ID: <input  name="_method"  /> <br />
       </p>
       <button type="submit">
         Delete
