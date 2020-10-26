@@ -3,8 +3,13 @@ const cors = require('cors')
 let i=0;
 const app = express();
 const bodyParser = require('body-parser');
+
+const methodOverride = require('method-override');
+
+
  app.use(bodyParser.urlencoded());
 app.use(cors())
+
 
 const welcomeMessage = {
   id: 0,
