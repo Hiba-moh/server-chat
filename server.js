@@ -42,9 +42,17 @@ app.post('/messages',(req,res)=>{
   newMessage.id = ++i;
   messages.push(newMessage);
   
-  
 })
 
+app.delete('/messages/:id', (req, res) => {
+    const { id } = req.params
+let messageById = messages.find(message=>message.id===id)
+            people.splice(e, 1)
+        }
+    });
+
+    res.send("Person deleted");
+})
 
 
 app.listen(process.env.PORT);
