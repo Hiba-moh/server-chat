@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require('cors')
-const bodyParse = require('body-parse');
-app.use(bodyParse.json)
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded());
 const app = express();
 
 app.use(cors())
@@ -29,12 +30,12 @@ app.get('/messages/:id',(req,res)=>{
   res.json(messageById);
 })
 
-// app.post('/messages',(req,res)=>{
-//  let newMessage = req.body;
-//   messages.push(newMessage)
+app.post('/messages',(req,res)=>{
+ let newMessage = req.body;
+  messages.push(newMessage)
   
-//   res.send('messages');
-// })
+  res.send('messages');
+})
 
 
 
