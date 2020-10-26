@@ -44,14 +44,12 @@ app.post('/messages',(req,res)=>{
   
 })
 
-app.delete('/messages/:id', (req, res) => {
+app.delete('/messages/delete/:id', (req, res) => {
     const { id } = req.params
-let messageById = messages.find(message=>message.id===id)
-            people.splice(e, 1)
-        }
-    });
-
+ let messageById= messages.find(message=>message.id===id)
+     messages.splice(messageById, 1)
     res.send("Person deleted");
+  
 })
 
 
