@@ -45,12 +45,12 @@ app.post('/messages',(req,res)=>{
 })
 
 app.delete('/messages/delete/:id', (req, res) => {
-    const { id } = req.params
+    let messageById= Number(req.params.id);
  messages.forEach(e => {
-        if (e.id == id) {
+        if (e.id === messageById) {
             messages.splice(e, 1)
             res.send("Person deleted");
-  res.json(id);
+  res.json(messageById);
         }   
 })
 })
