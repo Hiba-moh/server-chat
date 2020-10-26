@@ -29,12 +29,12 @@ app.get('/messages/:id',(req,res)=>{
   res.json(messageById);
 })
 
-app.post('/messages',(req,res)=>{
- let newMessage = req.body;
-  messages.push(newMessage)
+// app.post('/messages',(req,res)=>{
+//  let newMessage = req.body;
+//   messages.push(newMessage)
   
-  res.send('messages');
-})
+//   res.send('messages');
+// })
 
 
 
