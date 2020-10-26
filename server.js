@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require('cors')
 let i=0;
 const app = express();
-
+const bodyParser = require('body-parser');
+ app.use(bodyParser.urlencoded());
 app.use(cors())
 
 const welcomeMessage = {
@@ -18,8 +19,7 @@ const welcomeMessage = {
 //Note: messages will be lost when Glitch restarts our server.
 const messages = [welcomeMessage]
 
-const bodyParser = require('body-parser');
- app.use(bodyParser.urlencoded());
+
 
 
 app.get('/', function(request, response) {
@@ -41,14 +41,18 @@ app.post('/messages',(req,res)=>{
  let newMessage = req.body;
   newMessage.id = ++i;
   messages.push(newMessage);
-  
+  res.send('one message added')
 })
 
 app.delete('/messages/delete/:id', (req, res) => {
     const { id } = req.params
- let messageById= messages.find(message=>message.id===id)
-     messages.splice(messageById, 1)
+ messages.forEach(e => {
+        if (e.id == id) {
+            messages.splice(e, 1)
+        }
+   
     res.send("Person deleted");
+  res.json(messageById);
   
 })
 
