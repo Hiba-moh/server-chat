@@ -49,12 +49,10 @@ app.delete('/messages/delete/:id', (req, res) => {
  messages.forEach(e => {
         if (e.id == id) {
             messages.splice(e, 1)
-        }
-   
-    res.send("Person deleted");
-  res.json(messageById);
-  
+            res.send("Person deleted");
+  res.json(id);
+        }   
 })
-
+})
 
 app.listen(process.env.PORT);
