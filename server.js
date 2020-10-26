@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 const methodOverride = require('method-override');
 
-
+app.use(methodOverride('_method'));
  app.use(bodyParser.urlencoded());
 app.use(cors())
 
@@ -49,7 +49,7 @@ app.post('/messages',(req,res)=>{
   res.send('one message added')
 })
 
-app.delete('/messages/delete/:id', (req, res) => {
+app.delete('/messages/:id', (req, res) => {
     let messageById= Number(req.params.id);
  messages.forEach(e => {
         if (e.id === messageById) {
