@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require('cors')
-
+let i=0;
 const app = express();
 
 app.use(cors())
@@ -39,13 +39,11 @@ app.get('/messages/:id',(req,res)=>{
 
 app.post('/messages',(req,res)=>{
  let newMessage = req.body;
+  newMessage.id = ++i;
   messages.push(newMessage);
   
+  
 })
-
-
-
-
 
 
 
