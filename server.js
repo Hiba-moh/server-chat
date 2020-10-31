@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require('cors')
-let i=0;
 const app = express();
 const bodyParser = require('body-parser');
 
@@ -44,7 +43,7 @@ app.get('/messages/:id',(req,res)=>{
 
 app.post('/messages',(req,res)=>{
  let newMessage = req.body;
-  newMessage.id = ++i;
+  newMessage.id =messages.length;
   messages.push(newMessage);
   res.send('one message added')
 })
